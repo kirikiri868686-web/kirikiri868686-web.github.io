@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>夢壁紙ギャラリー｜AI壁紙100選 - ルミナ壁紙工房</title>
+<meta name="description" content="海、星空、リミナルスペース、サイバーパンクなど10ジャンル100枚のAI壁紙ギャラリー。高画質セットはBOOTH「ルミナ壁紙工房」で販売中。Androidアプリ「DreamWallpaper」なら無料で毎日自動で壁紙が変わります。">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  :root {
+    --bg:#0b0e1a; --bg2:#12172b; --card:#171d36; --line:#2a3358;
+    --text:#eef1ff; --muted:#a7aed0; --accent:#7cc7ff; --accent2:#c792ff;
+    --booth:#fc4d50;
+  }
+  html { scroll-behavior:smooth; }
+  body { background:var(--bg); color:var(--text); font-family:"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",sans-serif; line-height:1.7; }
+  a { color:var(--accent); }
+  header.hero {
+    padding:56px 20px 40px; text-align:center;
+    background:radial-gradient(ellipse 80% 60% at 50% -10%, #2b3a6e 0%, var(--bg) 70%);
+  }
+  header.hero h1 { font-size:2rem; letter-spacing:.08em; }
+  header.hero h1 .grad { background:linear-gradient(90deg,var(--accent),var(--accent2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  header.hero p { color:var(--muted); margin-top:10px; font-size:.95rem; }
+  nav.chips { position:sticky; top:0; z-index:50; background:rgba(11,14,26,.92); backdrop-filter:blur(8px);
+    display:flex; gap:8px; overflow-x:auto; padding:10px 14px; border-bottom:1px solid var(--line);
+    -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+  nav.chips::-webkit-scrollbar { display:none; }
+  .chip { flex:0 0 auto; padding:6px 14px; border:1px solid var(--line); border-radius:999px;
+    color:var(--text); text-decoration:none; font-size:.85rem; background:var(--bg2); }
+  .chip:active, .chip:hover { border-color:var(--accent); color:var(--accent); }
+  main { max-width:1080px; margin:0 auto; padding:8px 16px 40px; }
+  section.genre { padding:34px 0 8px; }
+  .genre-head h2 { font-size:1.35rem; border-left:4px solid var(--accent); padding-left:10px; }
+  .genre-head p { color:var(--muted); font-size:.9rem; margin:6px 0 14px; }
+  .grid { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; }
+  @media (max-width:760px) { .grid { grid-template-columns:repeat(3,1fr); } }
+  @media (max-width:420px) { .grid { grid-template-columns:repeat(2,1fr); } }
+  .grid button { border:none; padding:0; background:var(--card); border-radius:10px; overflow:hidden; cursor:pointer; aspect-ratio:9/16; }
+  .grid img { width:100%; height:100%; object-fit:cover; display:block; transition:transform .25s; }
+  .grid button:hover img, .grid button:active img { transform:scale(1.05); }
+  .genre-cta { margin:16px 0 6px; background:var(--card); border:1px solid var(--line); border-radius:14px; padding:16px; text-align:center; }
+  .cta-title { font-size:.9rem; color:var(--muted); margin-bottom:10px; }
+  .btn-booth { display:inline-block; background:var(--booth); color:#fff; text-decoration:none; font-weight:700;
+    padding:12px 22px; border-radius:999px; font-size:.95rem; }
+  .btn-booth:active { opacity:.85; }
+  section.app { margin-top:44px; background:linear-gradient(135deg,#1a2450,#241a4d); border:1px solid var(--line);
+    border-radius:18px; padding:28px 22px; text-align:center; }
+  section.app h2 { font-size:1.4rem; }
+  section.app p { color:var(--muted); font-size:.93rem; margin:10px auto 6px; max-width:560px; }
+  section.app ul { list-style:none; margin:12px 0 18px; font-size:.95rem; }
+  section.app li { margin:4px 0; }
+  .btn-play { display:inline-block; background:#fff; color:#111; text-decoration:none; font-weight:700;
+    padding:13px 26px; border-radius:999px; font-size:1rem; }
+  section.lumina { margin-top:36px; text-align:center; padding:10px 0 4px; }
+  section.lumina h2 { font-size:1.25rem; }
+  section.lumina p { color:var(--muted); font-size:.9rem; margin:8px auto 14px; max-width:560px; }
+  .lumina-links { display:flex; flex-wrap:wrap; gap:10px; justify-content:center; }
+  .lumina-links a { border:1px solid var(--line); background:var(--bg2); color:var(--text); text-decoration:none;
+    padding:9px 16px; border-radius:999px; font-size:.88rem; }
+  footer { text-align:center; color:var(--muted); font-size:.82rem; padding:34px 16px 44px; border-top:1px solid var(--line); margin-top:40px; }
+  #lightbox { position:fixed; inset:0; background:rgba(4,6,14,.94); display:none; z-index:100;
+    align-items:center; justify-content:center; flex-direction:column; }
+  #lightbox.open { display:flex; }
+  #lightbox img { max-width:94vw; max-height:82vh; border-radius:12px; box-shadow:0 8px 40px rgba(0,0,0,.6); }
+  #lightbox .lb-btns { margin-top:16px; display:flex; gap:10px; }
+  #lightbox .lb-btns a, #lightbox .lb-btns button { font-size:.9rem; padding:10px 18px; border-radius:999px; border:1px solid var(--line);
+    background:var(--bg2); color:var(--text); text-decoration:none; cursor:pointer; }
+  #lightbox .lb-booth { background:var(--booth); border-color:var(--booth); color:#fff; font-weight:700; }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>夢壁紙<span class="grad">ギャラリー</span></h1>
+  <p>10ジャンル・100枚のAI壁紙を集めたギャラリーです。<br>
+  気になる画像はタップで拡大できます。高画質セット（スマホ2サイズ＋PC用入り）はBOOTHで販売中。</p>
+</header>
+
+<nav class="chips">
+      <a class="chip" href="#g-ocean">海の世界</a>
+      <a class="chip" href="#g-liminal">リミナルスペース</a>
+      <a class="chip" href="#g-japan">和の景色</a>
+      <a class="chip" href="#g-cyberpunk">サイバーパンク</a>
+      <a class="chip" href="#g-steampunk">スチームパンク</a>
+      <a class="chip" href="#g-minimal">ミニマル</a>
+      <a class="chip" href="#g-dreamcore">ドリームコア</a>
+      <a class="chip" href="#g-glass">ガラスのきらめき</a>
+      <a class="chip" href="#g-apocalypse">滅びたあとの世界</a>
+      <a class="chip" href="#g-starry">星降る夜の世界</a>
+      <a class="chip" href="#app">アプリで無料</a>
+</nav>
+
+<main>
+  <section class="genre" id="g-ocean">
+    <div class="genre-head">
+      <h2>海の世界</h2>
+      <p>透き通る海、サンゴ礁、夕日の入江。青の濃淡がきれいな幻想オーシャン。</p>
+    </div>
+    <div class="grid" data-cat="Ocean"></div>
+    <div class="genre-cta">
+      <p class="cta-title">海の世界｜幻想オーシャン壁紙10枚セット（スマホ2サイズ＋PC入り・¥500）</p>
+      <a class="btn-booth" href="https://lumina-wallpaper.booth.pm/items/9198042" target="_blank" rel="noopener">このジャンルの壁紙セットはBOOTHで販売中</a>
+    </div>
+  </section>
+  <section class="genre" id="g-liminal">
+    <div class="genre-head">
+      <h2>リミナルスペース</h2>
+      <p>誰もいないプール、無人の廊下。静けさと懐かしさが漂う空間。</p>
+    </div>
+    <div class="grid" data-cat="Liminal"></div>
+    <div class="genre-cta">
+      <p class="cta-title">誰もいない空間｜リミナルスペース壁紙10枚セット（スマホ2サイズ＋PC入り・¥500）</p>
+      <a class="btn-booth" href="https://lumina-wallpaper.booth.pm/items/9198393" target="_blank" rel="noopener">このジャンルの壁紙セットはBOOTHで販売中</a>
+    </div>
+  </section>
+  <section class="genre" id="g-japan">
+    <div class="genre-head">
+      <h2>和の景色</h2>
+      <p>神社、鳥居、桜と山里。日本の原風景を写実タッチで。</p>
+    </div>
+    <div class="grid" data-cat="Japan"></div>
+    <div class="genre-cta">
+      <p class="cta-title">和の景色｜ジャパネスク壁紙10枚セット（スマホ2サイズ＋PC入り・¥500）</p>
+      <a class="btn-booth" href="https://lumina-wallpaper.booth.pm/items/9198411" target="_blank" rel="noopener">このジャンルの壁紙セットはBOOTHで販売中</a>
+    </div>
+  </section>
+  <section class="genre" id="g-cyberpunk">
+    <div class="genre-head">
+      <h2>サイバーパンク</h2>
+      <p>ネオンに濡れる未来都市の夜。雨と光の反射が映える10景。</p>
+    </div>
+    <div class="grid" data-cat="Cyberpunk"></div>
+    <div class="genre-cta">
+      <p class="cta-title">ネオン都市の夜｜サイバーパンク壁紙10枚セット（スマホ2サイズ＋PC入り・¥500）</p>
+      <a class="btn-booth" href="https://lumina-wallpaper.booth.pm/items/9198428" target="_blank" rel="noopener">このジャンルの壁紙セットはBOOTHで販売中</a>
+    </div>
+  </section>
+  <section class="genre" id="g-steampunk">
+    <div class="genre-head">
+      <h2>スチームパンク</h2>
+      <p>歯車と蒸気、真鍮の輝き。空想科学の世界をそのまま壁紙に。</p>
+    </div>
+    <div class="grid" data-cat="Steampunk"></div>
+    <div class="genre-cta">
+      <p class="cta-title">歯車と蒸気の世界｜スチームパンク壁紙10枚セット（スマホ2サイズ＋PC入り・¥500）</p>
+      <a class="btn-booth" href="https://lumina-wallpaper.booth.pm/items/9198460" target="_blank" rel="noopener">このジャンルの壁紙セットはBOOTHで販売中</a>
+    </div>
+  </section>
+  <section class="genre" id="g-minimal">
+    <div class="genre-head">
+      <h2>ミニマル</h2>
+      <p>余白の美しさ。静けさのかたちを集めた、すっきりした10景。</p>
+    </div>
+    <div class="grid" data-cat="Minimal"></div>
+    <div class="genre-cta">
+      <p class="cta-title">静けさのかたち｜ミニマル壁紙10枚セット（スマホ2サイズ＋PC入り・¥500）</p>
+      <a class="btn-booth" href="https://lumina-wallpaper.booth.pm/items/9199434" target="_blank" rel="noopener">このジャンルの壁紙セットはBOOTHで販売中</a>
+    </div>
+  </section>
+  <section class="genre" id="g-dreamcore">
+    <div class="genre-head">
+      <h2>ドリームコア</h2>
+      <p>夢のなかで見たような、ふわりと浮く不思議な風景。</p>
+    </div>
+    <div class="grid" data-cat="Dreamcore"></div>
+    <div class="genre-cta">
+      <p class="cta-title">夢のなかの風景｜ドリームコア壁紙10枚セット（スマホ2サイズ＋PC入り・¥500）</p>
+      <a class="btn-booth" href="https://lumina-wallpaper.booth.pm/items/9199456" target="_blank" rel="noopener">このジャンルの壁紙セットはBOOTHで販売中</a>
+    </div>
+  </section>
+  <section class="genre" id="g-glass">
+    <div class="genre-head">
+      <h2>ガラスのきらめき</h2>
+      <p>光を透かすガラスとクリスタルの世界。きらめきが画面いっぱいに。</p>
+    </div>
+    <div class="grid" data-cat="Glass"></div>
+    <div class="genre-cta">
+      <p class="cta-title">ガラスのきらめき｜クリスタルガラス壁紙10枚セット（スマホ2サイズ＋PC入り・¥500）</p>
+      <a class="btn-booth" href="https://lumina-wallpaper.booth.pm/items/9199480" target="_blank" rel="noopener">このジャンルの壁紙セットはBOOTHで販売中</a>
+    </div>
+  </section>
+  <section class="genre" id="g-apocalypse">
+    <div class="genre-head">
+      <h2>滅びたあとの世界</h2>
+      <p>緑に還る廃墟、静まり返った都市。終末の静けさを描く10景。</p>
+    </div>
+    <div class="grid" data-cat="Apocalypse"></div>
+    <div class="genre-cta">
+      <p class="cta-title">滅びたあとの世界｜終末世界・廃墟壁紙10枚セット（スマホ2サイズ＋PC入り・¥500）</p>
+      <a class="btn-booth" href="https://lumina-wallpaper.booth.pm/items/9199506" target="_blank" rel="noopener">このジャンルの壁紙セットはBOOTHで販売中</a>
+    </div>
+  </section>
+  <section class="genre" id="g-starry">
+    <div class="genre-head">
+      <h2>星降る夜の世界</h2>
+      <p>天の川、オーロラ、月明かり。眠る前に眺めたくなる星空。</p>
+    </div>
+    <div class="grid" data-cat="Starry"></div>
+    <div class="genre-cta">
+      <p class="cta-title">星降る夜の世界｜星空・天の川壁紙10枚セット（スマホ2サイズ＋PC入り・¥500）</p>
+      <a class="btn-booth" href="https://lumina-wallpaper.booth.pm/items/9199524" target="_blank" rel="noopener">このジャンルの壁紙セットはBOOTHで販売中</a>
+    </div>
+  </section>
+
+  <section class="lumina">
+    <h2>星読みの少女「ルミナ」シリーズ</h2>
+    <p>オリジナルキャラクター「ルミナ」の壁紙も、BOOTH「ルミナ壁紙工房」で販売しています。</p>
+    <div class="lumina-links">
+      <a href="https://lumina-wallpaper.booth.pm/items/9188083" target="_blank" rel="noopener">ルミナ（朝）</a>
+      <a href="https://lumina-wallpaper.booth.pm/items/9188099" target="_blank" rel="noopener">ルミナ（昼）</a>
+      <a href="https://lumina-wallpaper.booth.pm/items/9188106" target="_blank" rel="noopener">ルミナ（夜）</a>
+      <a href="https://lumina-wallpaper.booth.pm/items/9188125" target="_blank" rel="noopener">ルミナ 冬パック</a>
+      <a href="https://lumina-wallpaper.booth.pm/items/9188156" target="_blank" rel="noopener">無料お試しセット</a>
+      <a href="https://lumina-wallpaper.booth.pm/" target="_blank" rel="noopener">ショップを見る</a>
+    </div>
+  </section>
+
+  <section class="app" id="app">
+    <h2>アプリなら、ぜんぶ無料で毎日変わる</h2>
+    <p>Androidアプリ「DreamWallpaper」は、このギャラリーの壁紙100枚が無料で使える公式アプリです。</p>
+    <ul>
+      <li>✦ 10ジャンル100枚の壁紙が無料</li>
+      <li>✦ 毎日自動で壁紙が変わる（お気に入り・ジャンル指定OK）</li>
+      <li>✦ タップ数回でロック画面・ホーム画面に設定</li>
+    </ul>
+    <a class="btn-play" href="https://play.google.com/store/apps/details?id=com.kirikiri.dreamwallpaper" target="_blank" rel="noopener">Google Playで無料ダウンロード</a>
+  </section>
+</main>
+
+<footer>
+  <p>販売：<a href="https://lumina-wallpaper.booth.pm/" target="_blank" rel="noopener">ルミナ壁紙工房（BOOTH）</a>／アプリ：DreamWallpaper</p>
+  <p>掲載画像はAI生成イラストです。ギャラリーの画像はプレビュー用です。高画質版はBOOTHのセット、またはアプリでご利用ください。</p>
+</footer>
+
+<div id="lightbox" role="dialog" aria-label="壁紙プレビュー">
+  <img id="lb-img" alt="壁紙の拡大プレビュー">
+  <div class="lb-btns">
+    <a class="lb-booth" id="lb-booth" href="#" target="_blank" rel="noopener">BOOTHで高画質セットを見る</a>
+    <button id="lb-close" type="button">閉じる</button>
+  </div>
+</div>
+
+<script>
+var CATALOG = {"Ocean": [{"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/ocean_001.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/ocean_001.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/ocean_002.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/ocean_002.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/ocean_003.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/ocean_003.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/ocean_004.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/ocean_004.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/ocean_005.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/ocean_005.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/ocean_006.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/ocean_006.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/ocean_007.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/ocean_007.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/ocean_008.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/ocean_008.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/ocean_009.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/ocean_009.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/ocean_010.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/ocean_010.webp"}], "Liminal": [{"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/liminal_001.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/liminal_001.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/liminal_002.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/liminal_002.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/liminal_003.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/liminal_003.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/liminal_004.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/liminal_004.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/liminal_005.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/liminal_005.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/liminal_006.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/liminal_006.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/liminal_007.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/liminal_007.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/liminal_008.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/liminal_008.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/liminal_009.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/liminal_009.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/liminal_010.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/liminal_010.webp"}], "Japan": [{"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/japan_001.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/japan_001.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/japan_002.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/japan_002.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/japan_003.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/japan_003.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/japan_004.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/japan_004.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/japan_005.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/japan_005.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/japan_006.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/japan_006.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/japan_007.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/japan_007.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/japan_008.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/japan_008.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/japan_009.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/japan_009.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/japan_010.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/japan_010.webp"}], "Cyberpunk": [{"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/cyberpunk_001.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/cyberpunk_001.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/cyberpunk_002.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/cyberpunk_002.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/cyberpunk_003.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/cyberpunk_003.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/cyberpunk_004.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/cyberpunk_004.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/cyberpunk_005.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/cyberpunk_005.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/cyberpunk_006.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/cyberpunk_006.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/cyberpunk_007.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/cyberpunk_007.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/cyberpunk_008.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/cyberpunk_008.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/cyberpunk_009.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/cyberpunk_009.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/cyberpunk_010.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/cyberpunk_010.webp"}], "Steampunk": [{"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/steampunk_001.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/steampunk_001.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/steampunk_002.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/steampunk_002.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/steampunk_003.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/steampunk_003.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/steampunk_004.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/steampunk_004.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/steampunk_005.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/steampunk_005.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/steampunk_006.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/steampunk_006.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/steampunk_007.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/steampunk_007.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/steampunk_008.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/steampunk_008.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/steampunk_009.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/steampunk_009.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/steampunk_010.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/steampunk_010.webp"}], "Minimal": [{"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/minimal_001.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/minimal_001.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/minimal_002.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/minimal_002.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/minimal_003.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/minimal_003.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/minimal_004.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/minimal_004.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/minimal_005.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/minimal_005.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/minimal_006.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/minimal_006.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/minimal_007.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/minimal_007.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/minimal_008.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/minimal_008.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/minimal_009.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/minimal_009.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/minimal_010.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/minimal_010.webp"}], "Dreamcore": [{"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/dreamcore_001.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/dreamcore_001.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/dreamcore_002.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/dreamcore_002.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/dreamcore_003.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/dreamcore_003.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/dreamcore_004.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/dreamcore_004.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/dreamcore_005.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/dreamcore_005.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/dreamcore_006.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/dreamcore_006.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/dreamcore_007.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/dreamcore_007.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/dreamcore_008.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/dreamcore_008.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/dreamcore_009.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/dreamcore_009.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/dreamcore_010.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/dreamcore_010.webp"}], "Glass": [{"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/glass_001.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/glass_001.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/glass_002.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/glass_002.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/glass_003.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/glass_003.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/glass_004.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/glass_004.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/glass_005.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/glass_005.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/glass_006.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/glass_006.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/glass_007.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/glass_007.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/glass_008.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/glass_008.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/glass_009.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/glass_009.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/glass_010.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/glass_010.webp"}], "Apocalypse": [{"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/apocalypse_001.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/apocalypse_001.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/apocalypse_002.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/apocalypse_002.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/apocalypse_003.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/apocalypse_003.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/apocalypse_004.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/apocalypse_004.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/apocalypse_005.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/apocalypse_005.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/apocalypse_006.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/apocalypse_006.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/apocalypse_007.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/apocalypse_007.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/apocalypse_008.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/apocalypse_008.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/apocalypse_009.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/apocalypse_009.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/apocalypse_010.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/apocalypse_010.webp"}], "Starry": [{"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/starry_001.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/starry_001.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/starry_002.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/starry_002.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/starry_003.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/starry_003.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/starry_004.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/starry_004.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/starry_005.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/starry_005.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/starry_006.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/starry_006.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/starry_007.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/starry_007.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/starry_008.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/starry_008.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/starry_009.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/starry_009.webp"}, {"thumb": "https://kirikiri868686-web.github.io/wallpapers/thumb/starry_010.webp", "full": "https://kirikiri868686-web.github.io/wallpapers/starry_010.webp"}]};
+var BOOTH = {
+  "Ocean": "https://lumina-wallpaper.booth.pm/items/9198042",
+  "Liminal": "https://lumina-wallpaper.booth.pm/items/9198393",
+  "Japan": "https://lumina-wallpaper.booth.pm/items/9198411",
+  "Cyberpunk": "https://lumina-wallpaper.booth.pm/items/9198428",
+  "Steampunk": "https://lumina-wallpaper.booth.pm/items/9198460",
+  "Minimal": "https://lumina-wallpaper.booth.pm/items/9199434",
+  "Dreamcore": "https://lumina-wallpaper.booth.pm/items/9199456",
+  "Glass": "https://lumina-wallpaper.booth.pm/items/9199480",
+  "Apocalypse": "https://lumina-wallpaper.booth.pm/items/9199506",
+  "Starry": "https://lumina-wallpaper.booth.pm/items/9199524"
+};
+var lb = document.getElementById('lightbox');
+var lbImg = document.getElementById('lb-img');
+var lbBooth = document.getElementById('lb-booth');
+function openLB(cat, idx) {
+  lbImg.src = CATALOG[cat][idx].full;
+  lbBooth.href = BOOTH[cat];
+  lb.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLB() {
+  lb.classList.remove('open');
+  lbImg.src = '';
+  document.body.style.overflow = '';
+}
+document.querySelectorAll('.grid').forEach(function(grid) {
+  var cat = grid.getAttribute('data-cat');
+  CATALOG[cat].forEach(function(item, idx) {
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.setAttribute('aria-label', '壁紙を拡大表示');
+    var img = document.createElement('img');
+    img.src = item.thumb;
+    img.loading = 'lazy';
+    img.alt = '';
+    btn.appendChild(img);
+    btn.addEventListener('click', function() { openLB(cat, idx); });
+    grid.appendChild(btn);
+  });
+});
+document.getElementById('lb-close').addEventListener('click', closeLB);
+lb.addEventListener('click', function(e) { if (e.target === lb) closeLB(); });
+document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeLB(); });
+</script>
+</body>
+</html>
